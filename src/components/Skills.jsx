@@ -5,7 +5,11 @@ const SKILLS_CATEGORIES = [
   },
   {
     name: "Backend",
-    skills: ["Node.js", "Express.js", "MongoDB", "PHP", "MySQL", "SQL", "PostgreSQL"]
+    skills: ["Node.js", "Express.js", "PHP"]
+  },
+  {
+    name: "DataBase",
+    skills: ["MongoDB", "MySQL", "PostgreSQL", "SQL"]
   },
   {
     name: "Programming",

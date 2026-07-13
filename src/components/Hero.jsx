@@ -34,7 +34,7 @@ export default function Hero() {
       </div>
 
       <div className="flex h-40 w-40 shrink-0 items-center justify-center rounded-full bg-accent/10 text-5xl font-bold text-accent ring-4 ring-accent/20 sm:h-52 sm:w-52 dark:bg-accent-dark/10 dark:text-accent-dark dark:ring-accent-dark/20">
-        LA
+        <img className="rounded-full" src="/formal.jpeg" alt="LA" />
       </div>
     </section>
   )

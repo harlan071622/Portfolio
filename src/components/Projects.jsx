@@ -25,7 +25,7 @@ const PROJECTS = [
     description:
       "A full-stack e-commerce website built with React, Node.js, MongoDB, and Express.js. Features include product listings, shopping cart, user authentication, and have an admin panel for managing products and orders, can also pull real time record for sales revenue.",
     tags: ["React", "Node.js", "Express.js", "MongoDB"],
-    condition: "Work in Progress",
+    condition:"Working in Progress"
   }
 ]
 

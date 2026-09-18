@@ -70,10 +70,11 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="mx-auto max-w-5xl px-6 py-20">
-      <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
-        Projects
-      </h2>
+    <section id="projects" className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:col-span-2 dark:border-[#7f8c8d] dark:bg-[#00020a]/80">
+      <div className="flex items-start justify-between gap-6">
+        <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">Projects</h2>
+        <span className="text-xs text-neutral-400">03 / 03</span>
+      </div>
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((project) => (
           <article onClick ={() => {
@@ -81,8 +82,7 @@ export default function Projects() {
             setCurrentImageIndex(0)
           }}
             key={project.title}
-            className="flex flex-col rounded-xl border border-neutral-200 p-6 shadow-sm transition-shadow hover:shadow-md 
-            dark:border-neutral-800"
+            className="group flex cursor-pointer flex-col rounded-xl border border-neutral-200 bg-neutral-50 p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md dark:border-[#7f8c8d] dark:bg-[#00020a]"
           >
             <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
               {project.title}
@@ -93,8 +93,8 @@ export default function Projects() {
             <div className="mt-4">
               <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${
                 project.condition === "Completed"
-                  ? "bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
-                  : "bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100"
+                  ? "bg-green-600 text-white dark:bg-green-700 dark:text-green-50"
+                  : "bg-yellow-700 text-yellow-50 dark:bg-yellow-800 dark:text-yellow-50"
               }`}>
                 {project.condition}
               </span>
@@ -114,7 +114,7 @@ export default function Projects() {
       </div>
       {selectedProject && (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setSelectedProject(null)}>
-        <div className="w-full max-w-3xl rounded-xl bg-white p-6 shadow-lg dark:bg-neutral-900" onClick={(e) => e.stopPropagation()}>
+        <div className="w-full max-w-3xl rounded-xl bg-white p-6 shadow-lg dark:bg-[#000008]" onClick={(e) => e.stopPropagation()}>
           <div>
             <div className="p-5 text-xl font-bold">{selectedProject.title}</div>
             <p className="p-2 mb-4">{selectedProject.details}</p>
@@ -128,7 +128,7 @@ export default function Projects() {
               </button>
             </div> 
           </div>
-          <button onClick={() => setSelectedProject(null)} className="bg-red-500 text-white px-4 py-2 rounded-lg mt-5">
+          <button onClick={() => setSelectedProject(null)} className="rounded-lg bg-[#1b2631] px-4 py-2 text-white mt-5 dark:bg-[#bdc3c7] dark:text-[#1b2631]">
             Close
           </button>
         </div>

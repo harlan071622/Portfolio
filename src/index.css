@@ -3,15 +3,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-accent: #aa3bff;
-  --color-accent-dark: #c084fc;
+  --color-accent: #1b2631;
+  --color-accent-dark: #bdc3c7;
   --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  @apply bg-white text-neutral-700 dark:bg-neutral-950 dark:text-neutral-300;
+  @apply bg-[#ecf0f1] text-[#1b2631] dark:bg-[#000008] dark:text-[#ecf0f1];
+}
+
+.skills-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.skills-track {
+  animation: skills-scroll 24s linear infinite;
+}
+
+.skills-marquee:hover .skills-track {
+  animation-play-state: paused;
+}
+
+@keyframes skills-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-track {
+    animation: none;
+  }
 }

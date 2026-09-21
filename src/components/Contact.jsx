@@ -1,6 +1,57 @@
+import { useState } from "react"
+
 const EMAIL = "lanceacuna9@gmail.com"
+const WEB3FORMS_ACCESS_KEY = "c9d6f9d9-566b-4c03-9b0d-88380489106d"
+const INITIAL_FORM = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  message: "",
+}
 
 export default function Contact({ compact = false }) {
+  const [formData, setFormData] = useState(INITIAL_FORM)
+  const [status, setStatus] = useState({ type: "idle", message: "" })
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setStatus({ type: "sending", message: "Sending your message..." })
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "Portfolio Contact Form Submission",
+          ...formData,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || result.success !== true) {
+        throw new Error(result.message || "Something went wrong while sending your message.")
+      }
+
+      setFormData(INITIAL_FORM)
+      setStatus({ type: "success", message: "Your message has been sent successfully!" })
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error.message || "Failed to send your message. Please try again.",
+      })
+    }
+  }
+
   if (compact) {
     return (
       <section id="contact" className="mt-6">
@@ -76,10 +127,7 @@ export default function Contact({ compact = false }) {
           </p>
         </div>
 
-        <form action="https://api.web3forms.com/submit" method="POST" className="mt-6 grid gap-4">
-          <input type="hidden" name="access_key" value="c9d6f9d9-566b-4c03-9b0d-88380489106d" />
-          <input type="hidden" name="subject" value="Portfolio Contact Form Submission" />
-
+        <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
           <div className="grid gap-2 md:grid-cols-2">
             <div className="text-left">
               <label className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
@@ -88,6 +136,8 @@ export default function Contact({ compact = false }) {
               <input
                 type="text"
                 name="first_name"
+                value={formData.first_name}
+                onChange={handleChange}
                 placeholder="Enter your first name"
                 required
                 className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
@@ -100,6 +150,8 @@ export default function Contact({ compact = false }) {
               <input
                 type="text"
                 name="last_name"
+                value={formData.last_name}
+                onChange={handleChange}
                 placeholder="Enter your last name"
                 required
                 className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
@@ -114,6 +166,8 @@ export default function Contact({ compact = false }) {
             <input
               type="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Enter your email"
               required
               className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
@@ -126,15 +180,35 @@ export default function Contact({ compact = false }) {
             </label>
             <textarea
               name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Enter your message"
               required
               className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
             />
           </div>
 
+          {status.message && (
+            <p
+              className={`text-sm ${
+                status.type === "success"
+                  ? "text-green-600 dark:text-green-400"
+                  : status.type === "error"
+                    ? "text-red-600 dark:text-red-400"
+                    : "text-neutral-600 dark:text-neutral-300"
+              }`}
+            >
+              {status.message}
+            </p>
+          )}
+
           <div>
-            <button type="submit" className="mt-4 rounded-lg bg-accent px-6 py-3 font-medium text-white transition-opacity hover:opacity-90">
-              Send Message
+            <button
+              type="submit"
+              disabled={status.type === "sending"}
+              className="mt-4 rounded-lg bg-accent px-6 py-3 font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {status.type === "sending" ? "Sending..." : "Send Message"}
             </button>
           </div>
         </form>

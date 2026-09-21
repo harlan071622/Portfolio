@@ -39,6 +39,7 @@ export default function Navbar({ currentPath, onNavigate }) {
                     event.preventDefault()
                     onNavigate(link.href)
                   }}
+                  aria-label={link.label}
                   className={` flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2.5 transition-colors hover:bg-accent/10 hover:text-accent dark:hover:bg-accent-dark/10 dark:hover:text-accent-dark ${
                     currentPath === link.href
                       ? "bg-accent/10 font-medium text-accent dark:bg-accent-dark/10 dark:text-accent-dark"
@@ -46,7 +47,7 @@ export default function Navbar({ currentPath, onNavigate }) {
                   }`}
                 >
                   <span className="flex shrink-0 items-center">{link.icon}</span>
-                  <span>{link.label}</span> 
+                  <span className="hidden lg:inline">{link.label}</span>
                 </a>
               </li>
             ))}

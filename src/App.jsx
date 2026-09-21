@@ -51,8 +51,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-[#000008] lg:flex">
       <Navbar currentPath={path} onNavigate={navigate} />
-      <main className="min-w-0 flex-1 pb-20 lg:ml-10">
-        <div className="mx-auto w-full min-w-0 max-w-6xl overflow-x-hidden px-6 py-10 md:px-10 lg:py-16">
+      <main className="min-w-0 flex-1 lg:ml-10">
+        <div className="mx-auto w-full min-w-0 max-w-6xl overflow-x-hidden px-4 py-6 sm:px-6 sm:py-8 md:px-10 lg:py-10">
           {renderPage()}
         </div>
         <Footer />

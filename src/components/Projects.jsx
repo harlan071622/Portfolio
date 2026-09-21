@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 const PROJECTS = [
   {
@@ -52,6 +51,9 @@ const PROJECTS = [
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [activeModalTab, setActiveModalTab] = useState("images")
+
+  const activeImage = selectedProject?.images?.[currentImageIndex] || ""
 
   useEffect(() => {
     function handleKey(e) {
@@ -70,7 +72,8 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:col-span-2 dark:border-[#7f8c8d] dark:bg-[#00020a]/80">
+    <div className="py-16">
+    <section id="projects" className=" rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:col-span-2 dark:border-[#7f8c8d] dark:bg-[#00020a]/80">
       <div className="flex items-start justify-between gap-6">
         <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">Projects</h2>
         <span className="text-xs text-neutral-400">03 / 03</span>
@@ -80,6 +83,7 @@ export default function Projects() {
           <article onClick ={() => {
             setSelectedProject(project)
             setCurrentImageIndex(0)
+            setActiveModalTab("images")
           }}
             key={project.title}
             className="group flex cursor-pointer flex-col rounded-xl border border-neutral-200 bg-neutral-50 p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md dark:border-[#7f8c8d] dark:bg-[#00020a]"
@@ -113,27 +117,134 @@ export default function Projects() {
         ))}
       </div>
       {selectedProject && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setSelectedProject(null)}>
-        <div className="w-full max-w-3xl rounded-xl bg-white p-6 shadow-lg dark:bg-[#000008]" onClick={(e) => e.stopPropagation()}>
-          <div>
-            <div className="p-5 text-xl font-bold">{selectedProject.title}</div>
-            <p className="p-2 mb-4">{selectedProject.details}</p>
-            <div className="flex items-center gap-4">
-              <button onClick={prevImage} className="w-10 shrink-0 bg-gray-300 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-400">
-                <FaArrowLeft />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
+          <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-2xl dark:border-[#7f8c8d] dark:bg-[#000008]" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between border-b border-neutral-200 px-5 py-4 dark:border-neutral-800">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">Project detail</p>
+                <h3 className="mt-2 text-xl font-bold text-neutral-900 dark:text-neutral-100">{selectedProject.title}</h3>
+              </div>
+              <button onClick={() => setSelectedProject(null)} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]">
+                Close
               </button>
-              <img src={selectedProject.images[currentImageIndex]} alt={selectedProject.title} className="min-w-0 flex-1 rounded-lg" />
-              <button onClick={nextImage} className="w-10 shrink-0 bg-gray-300 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-400">
-                <FaArrowRight />
-              </button>
-            </div> 
+            </div>
+
+            <div className="border-b border-neutral-200 px-5 dark:border-neutral-800">
+              <div className="flex gap-6" role="tablist" aria-label="Project details">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeModalTab === "images"}
+                  onClick={() => setActiveModalTab("images")}
+                  className={`border-b-2 py-3 text-sm font-semibold transition-colors ${
+                    activeModalTab === "images"
+                      ? "border-accent text-accent dark:border-accent-dark dark:text-accent-dark"
+                      : "border-transparent text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+                  }`}
+                >
+                  Images
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeModalTab === "details"}
+                  onClick={() => setActiveModalTab("details")}
+                  className={`border-b-2 py-3 text-sm font-semibold transition-colors ${
+                    activeModalTab === "details"
+                      ? "border-accent text-accent dark:border-accent-dark dark:text-accent-dark"
+                      : "border-transparent text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+                  }`}
+                >
+                  Stack &amp; Description
+                </button>
+              </div>
+            </div>
+
+            <div className="p-5 md:p-6">
+              {activeModalTab === "images" ? (
+                <div className="project-gallery">
+                <div className="project-thumbnail-list">
+                  {selectedProject.images.map((image, index) => (
+                    <button
+                      key={`${selectedProject.title}-${image}`}
+                      type="button"
+                      onClick={() => {
+                        setCurrentImageIndex(index)
+                      }}
+                      className={`project-thumbnail ${currentImageIndex === index ? "is-active" : ""}`}
+                      aria-label={`View image ${index + 1} of ${selectedProject.title}`}
+                    >
+                      <img src={image} alt={`${selectedProject.title} preview ${index + 1}`} />
+                    </button>
+                  ))}
+                </div>
+
+                <div className="project-viewer-wrap">
+                  <div className="project-viewer">
+                    <img src={activeImage} alt={`${selectedProject.title} current`} />
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      onClick={prevImage}
+                      className="rounded-full border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]"
+                    >
+                      Previous
+                    </button>
+
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                      {currentImageIndex + 1} / {selectedProject.images.length}
+                    </p>
+
+                    <button
+                      type="button"
+                      onClick={nextImage}
+                      className="rounded-full border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]"
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">Status</p>
+                    <span className={`mt-3 inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+                      selectedProject.condition === "Completed"
+                        ? "bg-green-600 text-white dark:bg-green-700 dark:text-green-50"
+                        : "bg-yellow-700 text-yellow-50 dark:bg-yellow-800 dark:text-yellow-50"
+                    }`}>
+                      {selectedProject.condition}
+                    </span>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">Technology stack</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {selectedProject.tags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent dark:bg-accent-dark/10 dark:text-accent-dark">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">Description</p>
+                    <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                      {selectedProject.description}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+            </div>
           </div>
-          <button onClick={() => setSelectedProject(null)} className="rounded-lg bg-[#1b2631] px-4 py-2 text-white mt-5 dark:bg-[#bdc3c7] dark:text-[#1b2631]">
-            Close
-          </button>
         </div>
-      </div>
-    )}
+      )}
     </section>
+    </div>
   )
 }

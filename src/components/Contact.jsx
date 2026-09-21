@@ -59,16 +59,16 @@ export default function Contact({ compact = false }) {
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-transform hover:scale-110">
             <img src="/github.png" alt="GitHub" className="w-12 h-12 dark:invert" />
           </a>
-          <a href="https://www.linkedin.com/in/lance-acuna-7a05182a7" target="_blank" rel="noopener noreferrer" className="hover:text-accent dark:hover:text-accent-dark">
+          <a href="https://www.linkedin.com/in/lance-acuna-7a05182a7" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
           </a>
-          <a href={`mailto:${EMAIL}`} className="hover:text-accent dark:hover:text-accent-dark">
+          <a href={`mailto:${EMAIL}`} className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/gmail.png" alt="Gmail" className="w-12 h-12" />
           </a>
-          <a href="viber://chat?number=+639615753621" target="_blank" rel="noopener noreferrer" className="hover:text-accent dark:hover:text-accent-dark">
+          <a href="viber://chat?number=+639615753621" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/viber.png" alt="Viber" className="w-12 h-12" />
           </a>
-          <a href="https://wa.me/639615753621" target="_blank" rel="noopener noreferrer" className="hover:text-accent dark:hover:text-accent-dark">
+          <a href="https://wa.me/639615753621" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/whatsapp.png" alt="WhatsApp" className="w-12 h-12" />
           </a>
         </div>
@@ -77,10 +77,10 @@ export default function Contact({ compact = false }) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 py-27">
       <section
         id="contact"
-        className="rounded-2xl border border-neutral-200 bg-white px-6 py-12 text-center shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 md:px-10 md:py-20"
+        className="rounded-2xl border border-neutral-200 bg-white px-5 py-8 text-center shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 sm:px-6 sm:py-10 md:px-10 lg:py-12"
       >
         <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
           Contact
@@ -93,7 +93,7 @@ export default function Contact({ compact = false }) {
         </p>
         <a
           href={`mailto:${EMAIL}`}
-          className="mt-8 inline-block rounded-lg bg-accent px-6 py-3 font-medium text-white transition-opacity hover:opacity-90"
+          className="mt-8  inline-block rounded-lg bg-accent px-6 py-3 font-medium text-white transition-transform hover:scale-110"
         >
           {EMAIL}
         </a>
@@ -102,22 +102,22 @@ export default function Contact({ compact = false }) {
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-transform hover:scale-110">
             <img src="/github.png" alt="GitHub" className="w-12 h-12 dark:invert" />
           </a>
-          <a href="https://www.linkedin.com/in/lance-acuna-7a05182a7" target="_blank" rel="noopener noreferrer" className="hover:text-accent dark:hover:text-accent-dark">
+          <a href="https://www.linkedin.com/in/lance-acuna-7a05182a7" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
           </a>
-          <a href={`mailto:${EMAIL}`} className="hover:text-accent dark:hover:text-accent-dark">
+          <a href={`mailto:${EMAIL}`} className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/gmail.png" alt="Gmail" className="w-12 h-12" />
           </a>
-          <a href="viber://chat?number=+639615753621" target="_blank" rel="noopener noreferrer" className="hover:text-accent dark:hover:text-accent-dark">
+          <a href="viber://chat?number=+639615753621" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/viber.png" alt="Viber" className="w-12 h-12" />
           </a>
-          <a href="https://wa.me/639615753621" target="_blank" rel="noopener noreferrer" className="hover:text-accent dark:hover:text-accent-dark">
+          <a href="https://wa.me/639615753621" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110 hover:text-accent dark:hover:text-accent-dark">
             <img src="/whatsapp.png" alt="WhatsApp" className="w-12 h-12" />
           </a>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-neutral-200 bg-white px-6 py-12 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 md:px-10 md:py-20">
+      <section className="rounded-2xl border border-neutral-200 bg-white px-5 py-8 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 sm:px-6 sm:py-10 md:px-10 lg:py-12">
         <div className="grid">
           <h3 className="text-xl text-left font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
             Contact Form
@@ -128,7 +128,7 @@ export default function Contact({ compact = false }) {
         </div>
 
         <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
-          <div className="grid gap-2 md:grid-cols-2">
+          <div className="grid gap-2 lg:grid-cols-2">
             <div className="text-left">
               <label className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
                 First Name:

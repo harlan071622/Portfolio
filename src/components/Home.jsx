@@ -80,7 +80,7 @@ export default function Home() {
           </ul>
           {activeProject !== null && <p className="mt-4 text-xs text-accent dark:text-accent-dark">Selected project {activeProject + 1}. Open Projects for the full details.</p>}
         </article>
-        <article className="min-w-0 transition-all hover:-translate-y-1 max-w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
+        <article className="min-w-0 transition-all hover:-translate-y-1 hover:scale-105 max-w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">04</p>

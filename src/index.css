@@ -30,6 +30,82 @@ body {
   animation-play-state: paused;
 }
 
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-thumbnail-list {
+  display: flex;
+  order: 2;
+  flex-direction: row;
+  gap: 0.75rem;
+  max-height: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+}
+
+.project-thumbnail {
+  position: relative;
+  flex: 0 0 125px;
+  width: 125px;
+  overflow: hidden;
+  border-radius: 0;
+  border: 1px solid rgba(27, 38, 49, 0.15);
+  background: #f5f5f5;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.project-thumbnail:hover,
+.project-thumbnail.is-active {
+  border-color: rgba(27, 38, 49, 0.7);
+  box-shadow: 0 0 0 2px rgba(27, 38, 49, 0.08);
+  transform: translateY(-1px);
+}
+
+.project-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-viewer-wrap {
+  order: 1;
+  min-width: 0;
+}
+
+.project-viewer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  border: 1px solid rgba(27, 38, 49, 0.15);
+  background: #f3f4f6;
+  touch-action: manipulation;
+}
+
+.project-viewer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 640px) {
+  .project-thumbnail-list {
+    gap: 0.5rem;
+  }
+
+  .project-thumbnail {
+    flex-basis: 112px;
+    width: 112px;
+  }
+
+}
+
 @keyframes skills-scroll {
   from {
     transform: translateX(0);

@@ -80,7 +80,7 @@ export default function Contact({ compact = false }) {
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 py-27">
       <section
         id="contact"
-        className="rounded-2xl border border-neutral-200 bg-white px-5 py-8 text-center shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 sm:px-6 sm:py-10 md:px-10 lg:py-12"
+        className="rounded-2xl border border-neutral-400 bg-white px-5 py-8 text-center shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 sm:px-6 sm:py-10 md:px-10 lg:py-12"
       >
         <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
           Contact
@@ -117,7 +117,7 @@ export default function Contact({ compact = false }) {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-neutral-200 bg-white px-5 py-8 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 sm:px-6 sm:py-10 md:px-10 lg:py-12">
+      <section className="rounded-2xl border border-neutral-400 bg-white px-5 py-8 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 sm:px-6 sm:py-10 md:px-10 lg:py-12">
         <div className="grid">
           <h3 className="text-xl text-left font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
             Contact Form
@@ -140,7 +140,7 @@ export default function Contact({ compact = false }) {
                 onChange={handleChange}
                 placeholder="Enter your first name"
                 required
-                className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
+                className="mt-4 w-full rounded-lg border border-neutral-400 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
               />
             </div>
             <div className="text-left">
@@ -154,7 +154,7 @@ export default function Contact({ compact = false }) {
                 onChange={handleChange}
                 placeholder="Enter your last name"
                 required
-                className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
+                className="mt-4 w-full rounded-lg border border-neutral-400 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
               />
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function Contact({ compact = false }) {
               onChange={handleChange}
               placeholder="Enter your email"
               required
-              className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
+              className="mt-4 w-full rounded-lg border border-neutral-400 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
             />
           </div>
 
@@ -184,7 +184,7 @@ export default function Contact({ compact = false }) {
               onChange={handleChange}
               placeholder="Enter your message"
               required
-              className="mt-4 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
+              className="mt-4 w-full rounded-lg border border-neutral-400 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-accent dark:border-[#7f8c8d] dark:bg-[#000008]/80 dark:text-neutral-300 dark:placeholder:text-neutral-500"
             />
           </div>
 

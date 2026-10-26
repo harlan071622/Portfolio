@@ -13,7 +13,7 @@ const LINKS = [
 
 export default function Navbar({ currentPath, onNavigate }) {
   return (
-    <header className="relative border-b border-neutral-200 bg-white/90 backdrop-blur dark:border-[#7f8c8d] dark:bg-[#000008]/95 lg:fixed lg:left-0 lg:z-50 lg:flex lg:w-80 lg:border-b-0 lg:border-r">
+    <header className="relative border-b border-neutral-400 bg-white/90 backdrop-blur dark:border-[#7f8c8d] dark:bg-[#000008]/95 lg:fixed lg:left-0 lg:z-50 lg:flex lg:w-80 lg:border-b-0 lg:border-r">
       <nav className="mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-4 lg:flex-1 lg:items-stretch lg:px-8 lg:py-10">
         <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-accent/10 text-3xl font-bold text-accent ring-4 ring-accent/20 sm:h-32 sm:w-32 lg:h-40 lg:w-40 lg:text-5xl dark:bg-accent-dark/10 dark:text-accent-dark dark:ring-accent-dark/20">
           <img className="rounded-full" src="/formal.jpeg" alt="LA" />

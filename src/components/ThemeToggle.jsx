@@ -15,7 +15,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={() => setIsDark((prev) => !prev)}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      className="rounded-lg border border-neutral-300 p-2 text-neutral-600 transition-colors hover:border-accent hover:text-accent dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-accent-dark dark:hover:text-accent-dark"
+      className="rounded-lg border border-neutral-400 p-2 text-neutral-600 transition-colors hover:border-accent hover:text-accent dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-accent-dark dark:hover:text-accent-dark"
     >
       {isDark ? (
         <svg

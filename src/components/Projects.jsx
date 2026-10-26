@@ -35,7 +35,7 @@ const PROJECTS = [
     details:"",
     tags: ["React", "Node.js", "Express.js", "MongoDB"],
     images: ["/pdp1.png", "/pdp2.png", "/pdp3.png", "/pdp4.png", "/pdp5.png", "/pdp6.png", "/pdp7.png", "/pdp8.png", "/pdp9.png", "/pdp10.png", "/pdp11.png"],
-    condition: "Working in Progress",
+    condition: "Completed",
   },
   {
     title: "Payroll System for a Construction Business with Materials and Equipment Rentals",
@@ -73,7 +73,7 @@ export default function Projects() {
 
   return (
     <div className="py-16">
-    <section id="projects" className=" rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:col-span-2 dark:border-[#7f8c8d] dark:bg-[#00020a]/80">
+    <section id="projects" className=" rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm md:col-span-2 dark:border-[#7f8c8d] dark:bg-[#00020a]/80">
       <div className="flex items-start justify-between gap-6">
         <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">Projects</h2>
         <span className="text-xs text-neutral-400">03 / 03</span>
@@ -86,7 +86,7 @@ export default function Projects() {
             setActiveModalTab("images")
           }}
             key={project.title}
-            className="group flex cursor-pointer flex-col rounded-xl border border-neutral-200 bg-neutral-50 p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md dark:border-[#7f8c8d] dark:bg-[#00020a]"
+            className="group flex cursor-pointer flex-col rounded-xl border border-neutral-400 bg-neutral-50 p-5 shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md dark:border-[#7f8c8d] dark:bg-[#00020a]"
           >
             <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
               {project.title}
@@ -118,18 +118,18 @@ export default function Projects() {
       </div>
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
-          <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-2xl dark:border-[#7f8c8d] dark:bg-[#000008]" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between border-b border-neutral-200 px-5 py-4 dark:border-neutral-800">
+          <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-neutral-400 bg-white shadow-2xl dark:border-[#7f8c8d] dark:bg-[#000008]" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between border-b border-neutral-400 px-5 py-4 dark:border-neutral-800">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">Project detail</p>
                 <h3 className="mt-2 text-xl font-bold text-neutral-900 dark:text-neutral-100">{selectedProject.title}</h3>
               </div>
-              <button onClick={() => setSelectedProject(null)} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]">
+              <button onClick={() => setSelectedProject(null)} className="rounded-full border border-neutral-400 px-3 py-1.5 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]">
                 Close
               </button>
             </div>
 
-            <div className="border-b border-neutral-200 px-5 dark:border-neutral-800">
+            <div className="border-b border-neutral-400 px-5 dark:border-neutral-800">
               <div className="flex gap-6" role="tablist" aria-label="Project details">
                 <button
                   type="button"
@@ -188,7 +188,7 @@ export default function Projects() {
                     <button
                       type="button"
                       onClick={prevImage}
-                      className="rounded-full border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]"
+                      className="rounded-full border border-neutral-400 px-3 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]"
                     >
                       Previous
                     </button>
@@ -200,7 +200,7 @@ export default function Projects() {
                     <button
                       type="button"
                       onClick={nextImage}
-                      className="rounded-full border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]"
+                      className="rounded-full border border-neutral-400 px-3 py-1.5 text-xs font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-[#7f8c8d] dark:text-neutral-200 dark:hover:bg-[#111827]"
                     >
                       Next
                     </button>

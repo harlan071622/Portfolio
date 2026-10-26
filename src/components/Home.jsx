@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <section className="min-w-0 space-y-8">
-      <div className="border-b border-neutral-200 pb-8 dark:border-neutral-800">
+      <div className="border-b border-neutral-400 pb-8 dark:border-neutral-800">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent dark:text-accent-dark">
           Portfolio overview
         </p>
@@ -35,7 +35,7 @@ export default function Home() {
         </h1>
       </div> 
       <div className="grid min-w-0 gap-6 md:grid-cols-2">
-        <article className="min-w-0 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md max-w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 md:row-span-1">
+        <article className="min-w-0 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md max-w-full rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80 md:row-span-1">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">01</p>
@@ -47,7 +47,7 @@ export default function Home() {
             Front-end and full-stack developer focused on clear, human-friendly web products.
           </p>
         </article>
-        <article className="min-w-0 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md max-w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
+        <article className="min-w-0 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md max-w-full rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
             <div className="flex items-start justify-between gap-4">
                 <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">02</p>
@@ -60,7 +60,7 @@ export default function Home() {
                 <Skills compact />
             </div>
         </article>
-        <article className="min-w-0 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md max-w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
+        <article className="min-w-0 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md max-w-full rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">03</p>
@@ -80,7 +80,7 @@ export default function Home() {
           </ul>
           {activeProject !== null && <p className="mt-4 text-xs text-accent dark:text-accent-dark">Selected project {activeProject + 1}. Open Projects for the full details.</p>}
         </article>
-        <article className="min-w-0 transition-all hover:-translate-y-1 hover:scale-105 max-w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
+        <article className="min-w-0 transition-all hover:-translate-y-1 hover:scale-105 max-w-full rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent dark:text-accent-dark">04</p>

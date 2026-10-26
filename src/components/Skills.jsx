@@ -15,6 +15,9 @@ import {
   SiPython,
   SiGit,
   SiGithub,
+  SiClaudecode,
+  SiCursor,
+  SiGithubcopilot,
 } from "react-icons/si"
 
 const SKILLS_CATEGORIES = [
@@ -56,7 +59,10 @@ const SKILLS_CATEGORIES = [
     name: "Tools",
     skills: [
       {name: "Git", icon: SiGit, color: "#f05032"},
-      {name: "GitHub", icon: SiGithub, color: "#111827", invertOnDark: true}
+      {name: "GitHub", icon: SiGithub, color: "#111827", invertOnDark: true},
+      {name: "Claude Code", icon: SiClaudecode, color: "#DE7356"},
+      {name: "Copilot", icon: SiGithubcopilot, color: "#8957e5"},
+      {name: "Cursor", icon: SiCursor},
     ],
   },
 ]
@@ -65,7 +71,7 @@ export default function Skills({ compact = false }) {
   const skills = SKILLS_CATEGORIES.flatMap((category) => category.skills)
 
   return (
-    <section id="skills" className={compact ? "px-4" : "mt-6 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80"}>
+    <section id="skills" className={compact ? "px-4" : "mt-6 rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm dark:border-[#7f8c8d] dark:bg-[#000008]/80"}>
       {!compact && <div className="flex items-start justify-between gap-6">
         <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">Skills</h2>
         <span className="text-xs text-neutral-400">02 / 03</span>

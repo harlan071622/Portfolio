@@ -26,7 +26,7 @@ export default function Hero() {
           </a>
           <a
             href="/contact"
-            className="rounded-lg border border-neutral-300 px-5 py-2.5 font-medium text-neutral-700 transition-colors hover:border-accent hover:text-accent dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-accent-dark dark:hover:text-accent-dark"
+            className="rounded-lg border border-neutral-400 px-5 py-2.5 font-medium text-neutral-700 transition-colors hover:border-accent hover:text-accent dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-accent-dark dark:hover:text-accent-dark"
           >
             Contact Me
           </a>

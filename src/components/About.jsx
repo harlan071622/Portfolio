@@ -2,7 +2,7 @@ import Skills from "./Skills.jsx"
 
 export default function About() {
   return (
-    <section id="about" className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:p-8 dark:border-[#7f8c8d] dark:bg-[#000008]/80">
+    <section id="about" className="rounded-2xl border border-neutral-400 bg-white p-6 shadow-sm md:p-8 dark:border-[#7f8c8d] dark:bg-[#000008]/80">
       <div className="flex items-start justify-between gap-6">
         <h2 className="text-sm font-semibold tracking-wide text-accent uppercase dark:text-accent-dark">
         About Me

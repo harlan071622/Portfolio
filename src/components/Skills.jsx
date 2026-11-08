@@ -19,6 +19,7 @@ import {
   SiCursor,
   SiGithubcopilot,
 } from "react-icons/si"
+import { IoLogoApple, IoLogoWindows } from "react-icons/io5"
 
 const SKILLS_CATEGORIES = [
   {
@@ -63,6 +64,13 @@ const SKILLS_CATEGORIES = [
       {name: "Claude Code", icon: SiClaudecode, color: "#DE7356"},
       {name: "Copilot", icon: SiGithubcopilot, color: "#8957e5"},
       {name: "Cursor", icon: SiCursor},
+    ],
+  },
+  {
+    name: "Other",
+    skills: [
+      {name: "macOS", icon: IoLogoApple, color: "#a2aaad"},
+      {name: "Windows", icon: IoLogoWindows, color: "#0078d4"},
     ],
   },
 ]
